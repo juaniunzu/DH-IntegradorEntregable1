@@ -2,7 +2,10 @@ package com.example.integradorentregable1;
 
 //POJO - objeto a representar en la celda
 
-public class Animal {
+import java.io.Serializable;
+
+//se le hace implementar serializable para que pueda meterlo entero adentro de un bundle como "serializable"
+public class Animal implements Serializable {
 
     private String nombre;
     private Integer imagen;
