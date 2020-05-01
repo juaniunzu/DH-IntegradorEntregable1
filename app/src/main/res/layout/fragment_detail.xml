@@ -12,12 +12,19 @@
         android:layout_height="300dp" />
 
     <TextView
-        android:id="@+id/fragmentDetailTextView"
+        android:id="@+id/fragmentDetailTextViewNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="animal detalle"
+        android:text="animal nombre"
         android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/fragmentDetailTextViewDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="texto detalle del animal" />
 
 
 </LinearLayout>
