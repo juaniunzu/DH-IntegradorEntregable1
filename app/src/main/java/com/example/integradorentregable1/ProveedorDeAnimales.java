@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //se crea esta clase solo para que tenga el metodo de devolver lista de animales. Se pone abstracta porque su funcion
-//solo es tener este metodo, y no nos interesa que se pueda instanciar. Es buena practica porque el momento en el que
-//la lista pueda ser traida de otra fuente, directamente se toca este modulo.
+//solo es tener este metodo, y no nos interesa que se pueda instanciar. Es buena practica porque mantengo la actividad
+//mas ordenada, con menos codigo, y ademas, el momento en el que la lista pueda ser traida de otra fuente,
+//directamente se toca este modulo.
 public abstract class ProveedorDeAnimales {
 
     //static para que pueda llamarse sin ser instanciada la clase

@@ -18,9 +18,11 @@ public class DetailActivity extends AppCompatActivity {
         Intent desdeMain = getIntent();
         Bundle datosDesdeMain = desdeMain.getExtras();
 
+        //creo fragment y le seteo el bundle que viene desde el main ANTES DE PEGARLO
         DetailFragment detailFragment = new DetailFragment();
         detailFragment.setArguments(datosDesdeMain);
 
+        //recien ahora lo puedo pegar
         pegarFragment(detailFragment);
 
     }

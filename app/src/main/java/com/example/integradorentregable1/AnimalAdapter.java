@@ -16,6 +16,8 @@ import java.util.List;
 // entonces nos evitamos un casteo
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalViewHolder> {
 
+    //se pone listener como atributo para que lo pida el constructor, de esa manera
+    //cuando creamos el adapter nos aseguramos que conozca quién lo escucha
     private List<Animal> listaAnimales;
     private AnimalAdapterListener animalAdapterListener;
 
@@ -26,21 +28,28 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalView
 
     @NonNull
     @Override
-    //devuelve AnimalViewHolder porque se especifico en el extends de la clase
+    //metodo que crea la celda
+    //devuelve AnimalViewHolder en vez de ViewHolder porque se especifico en el extends de la clase
     public AnimalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        //inflador para pasar a View la celda xml
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        //celda inflada a xml
         View view = layoutInflater.inflate(R.layout.celda_animal, parent, false);
 
         return (new AnimalViewHolder(view));
     }
 
     @Override
-    //holder es tipo AnimalViewHolder porque se especifico en el extends de la clase
+    //Le da los datos a la celda creada.
+    //holder es tipo AnimalViewHolder en vez de ViewHolder porque se especifico en el
+    //extends de la clase. Nos evitamos castearlo para que conozca el onBind
     public void onBindViewHolder(@NonNull AnimalViewHolder holder, int position) {
 
+        //tomo un animal determinado segun la posicion y lo guardo en variable local
         Animal animal = this.listaAnimales.get(position);
-        //el onBind esta detallado abajo, es un metodo de la clase AnimalViewHolder ("modulacion")
+        //el onBind esta detallado abajo, es un metodo de la clase AnimalViewHolder ("modulacion").
+        //uso como parametro el animal guardado arriba
         holder.onBind(animal);
     }
 
@@ -61,10 +70,15 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalView
             celdaAnimalImageView = itemView.findViewById(R.id.celdaAnimalImageView);
             celdaAnimalTextView = itemView.findViewById(R.id.celdaAnimalTextView);
 
+            //se setea onClickListener a la celda
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //tomo el animal sobre el que se hizo click y lo guardo en variable local
                     Animal animal = listaAnimales.get(getAdapterPosition());
+                    //uso el listener atributo del adapter y llamo el metodo onClickAnimal,
+                    //le paso el animal guardado arriba como parametro. Este animal irá
+                    //encadenado en cada listener hasta el main que lo guardara en un bundle.
                     animalAdapterListener.onClickAnimal(animal);
 
                 }
@@ -72,7 +86,8 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalView
 
         }
 
-        //este metodo se llama arriba en el onBindViewHolder, metodo que le da los datos del objeto a la celda
+        //este metodo se llama arriba en el onBindViewHolder, metodo que le da los datos del objeto a la celda.
+        //se hace aca abajo para modular el codigo
         public void onBind(Animal unAnimal){
 
             celdaAnimalImageView.setImageResource(unAnimal.getImagen());
@@ -81,7 +96,8 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalView
         }
     }
 
-    //creo interfaz escuchadora que debera ser implementada por el fragment que se desee sea escuchador de este adapter
+    //creo interfaz escuchadora que debera ser implementada por el fragment que se desee sea escuchador de este adapter.
+    //cada fragment debera sobreescribir este metodo para que se comporte como el quiera
     public interface AnimalAdapterListener{
         void onClickAnimal(Animal unAnimal);
     }

@@ -19,16 +19,19 @@ public class MainActivity extends AppCompatActivity implements AnimalFragment.An
         AnimalFragment animalFragment = new AnimalFragment();
         pegarFragment(animalFragment);
 
-
-
-
     }
 
     @Override
+    //sobreescribo este metodo de la interfaz que implementa esta activity.
+    //el parametro toma el animal que viene desde el fragment, que a su vez
+    //viene desde el adapter
     public void onClickAnimalDesdeFragment(Animal unAnimal) {
 
+        //intent hacia la activity de detalle, con su respectivo bundle
         Intent mainADetail = new Intent(MainActivity.this, DetailActivity.class);
         Bundle datosADetail = new Bundle();
+
+        //previo a este paso necesito implementar "Serializable" al objeto a guardar en el bundle
         datosADetail.putSerializable("animal", unAnimal);
         mainADetail.putExtras(datosADetail);
         startActivity(mainADetail);

@@ -18,8 +18,11 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
+//implementa listener del adapter
 public class AnimalFragment extends Fragment implements AnimalAdapter.AnimalAdapterListener {
 
+    //tiene el listener como atributo para poder acceder al metodo onClick sobreescrito.
+    //no es necesario pedirlo en el constructor, el constructor del fragment debe estar siempre vacio.
     private AnimalFragmentListener animalFragmentListener;
 
     public AnimalFragment() {
@@ -46,7 +49,7 @@ public class AnimalFragment extends Fragment implements AnimalAdapter.AnimalAdap
 
         //creo lista que sera parametro en la construccion del adapter
         List<Animal> listaAnimales = ProveedorDeAnimales.getAnimales();
-        //creo adapter, como parametro listener uso esta misma clase fragment
+        //creo adapter, como parametro listener uso esta mismo fragment que es escuchador
         AnimalAdapter animalAdapter = new AnimalAdapter(listaAnimales, this);
         //creo layout manager, falso para que la lista no se muestre de atras para adelante
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
@@ -59,6 +62,9 @@ public class AnimalFragment extends Fragment implements AnimalAdapter.AnimalAdap
     }
 
     @Override
+    //sobreescribo el onClickAnimal, metodo de la interfaz que implementa este fragment.
+    //uso el listener atributo de este fragment para llamar el metodo onClickDesdeFragment y le paso como parametro
+    //el animal que viene desde el click del adapter
     public void onClickAnimal(Animal unAnimal) {
         this.animalFragmentListener.onClickAnimalDesdeFragment(unAnimal);
     }
