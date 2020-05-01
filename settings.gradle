@@ -1,0 +1,2 @@
+rootProject.name='IntegradorEntregable1'
+include ':app'
