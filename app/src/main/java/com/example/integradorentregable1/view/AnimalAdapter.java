@@ -1,4 +1,4 @@
-package com.example.integradorentregable1;
+package com.example.integradorentregable1.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.integradorentregable1.model.Animal;
+import com.example.integradorentregable1.R;
 
 import java.util.List;
 

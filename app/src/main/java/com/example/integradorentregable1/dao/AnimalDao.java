@@ -1,4 +1,7 @@
-package com.example.integradorentregable1;
+package com.example.integradorentregable1.dao;
+
+import com.example.integradorentregable1.R;
+import com.example.integradorentregable1.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +10,7 @@ import java.util.List;
 //solo es tener este metodo, y no nos interesa que se pueda instanciar. Es buena practica porque mantengo la actividad
 //mas ordenada, con menos codigo, y ademas, el momento en el que la lista pueda ser traida de otra fuente,
 //directamente se toca este modulo.
-public abstract class ProveedorDeAnimales {
+public abstract class AnimalDao {
 
     //static para que pueda llamarse sin ser instanciada la clase
     public static List<Animal> getAnimales(){

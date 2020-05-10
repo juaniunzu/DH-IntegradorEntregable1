@@ -1,4 +1,4 @@
-package com.example.integradorentregable1;
+package com.example.integradorentregable1.view;
 
 import android.os.Bundle;
 
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.integradorentregable1.model.Animal;
+import com.example.integradorentregable1.R;
 
 
 /**

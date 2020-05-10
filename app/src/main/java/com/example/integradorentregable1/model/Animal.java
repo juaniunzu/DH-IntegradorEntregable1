@@ -1,4 +1,4 @@
-package com.example.integradorentregable1;
+package com.example.integradorentregable1.model;
 
 //POJO - objeto a representar en la celda
 
