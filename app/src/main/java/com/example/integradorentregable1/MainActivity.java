@@ -1,19 +1,36 @@
 package com.example.integradorentregable1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements AnimalFragment.AnimalFragmentListener {
+
+    private DrawerLayout activityMainDrawerLayout;
+    private NavigationView activityMainNavigationView;
+    private CardView navHeaderCardView;
+    private View headerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        activityMainDrawerLayout = findViewById(R.id.activityMainDrawerLayout);
+        activityMainNavigationView = findViewById(R.id.activityMainNavigationView);
+        navHeaderCardView = findViewById(R.id.navHeaderCardView);
+        headerView = activityMainNavigationView.getHeaderView(0);
+
 
         //pegar el fragment
         AnimalFragment animalFragment = new AnimalFragment();
