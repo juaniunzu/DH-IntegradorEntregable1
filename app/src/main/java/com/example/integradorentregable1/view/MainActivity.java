@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity implements AnimalFragment.An
                 Toast.makeText(this, "Apretaron en Favoritos", Toast.LENGTH_SHORT).show();
                 activityMainDrawerLayout.closeDrawers();
                 break;
+            case R.id.navigationMenuAlbum:
+                AlbumFragment albumFragment = new AlbumFragment();
+                pegarFragment(albumFragment);
+                activityMainDrawerLayout.closeDrawers();
+                break;
             default:
                 Toast.makeText(this, "En construccion", Toast.LENGTH_SHORT).show();
                 break;

@@ -12,6 +12,8 @@ import java.util.List;
 //y caso contrario, llama al dao que tiene el metodo getAnimales.
 public class AnimalController {
 
+    //dado que este metodo es asincronico debe devolver void si o si.
+    //por eso se le pasa un listener que actuará al momento de recibir el resultado
     public void getAnimals(ResultListener<List<Animal>> resultListenerDeLaView){
         if(hayInternet()){
             //ir a internet y buscar los animales

@@ -15,6 +15,12 @@
             android:icon="@drawable/ic_favorite_black_24dp"
             android:title="Favoritos" />
 
+        <item
+            android:id="@+id/navigationMenuAlbum"
+            android:icon="@drawable/ic_library_music_black_24dp"
+            android:title="Album" />
+
+
     </group>
 
     <group
